@@ -2,21 +2,18 @@
 #   Luke Domanico - Assignment 05: READ THE INSTRUCTIONS BELOW!   #
 ###################################################################
 
-## If the .csv is not read by the fread() function, try these instructions:
-
-# Before running the fread() function on "real_gdp_1947-Q32019.csv",
-# Go to the "Session" panel, hit the "set Working Directory" Button,
-# and set the working directory "to the "To Source File Location".
-# This will allow the CSV to be read with the fread() function.
-
-getwd()
+## Use the following line of commands to set the working directory to ".../Assignment-05"
+library(rstudioapi)
+current_path <- getActiveDocumentContext()$path 
+setwd(dirname(current_path ))
+print( getwd() )
 
 ## Reading in our csv file using fread() from package data.table 
 # Installing data.table (if required) and loading it into memory
 if (!require("data.table")) install.packages("data.table")
 library("data.table")
 
-#Checking and setting number of cpu threads 
+#Checking and setting number of cpu threads to maximize reading performance
 getDTthreads()
 getDTthreads(verbose=TRUE)
 setDTthreads(0)
